@@ -36,6 +36,7 @@
     overflow-y: hidden;
      scrollbar-width: none
 }
+
 .recommendedBlock{
     display: grid;
     gap: 20px;
