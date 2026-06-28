@@ -1,11 +1,10 @@
-import React, { useContext, useEffect , useState} from 'react'
+import  { useContext, useEffect , useState} from 'react'
 import styles from './productDetail.module.css'
 import { ThemeContext } from '../../ThemeContext'
 import products from '../../utils/product.json'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
-
 
 
 
