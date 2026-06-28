@@ -1,12 +1,15 @@
 import React from 'react'
 import styles from './Card.module.css'
+import { Link } from 'react-router-dom';
 
 const Card = ({ theme, item }) => {
 
     return (
         <div key={item.id} className={[styles.card, theme === "light" ? styles.cardLight : styles.cardDark].join(' ')}>
             <div className={styles.imageBlock} >
-                <img className={styles.Image} src={item.imageLink} />
+                <Link to={`/detail/${item.id}`}>
+                    <img className={styles.Image} src={item.imageLink} />
+                </Link>
             </div>
 
             <div className={theme === "light" ? styles.DescBlockLight : styles.DescBlockDark}>
