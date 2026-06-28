@@ -1,11 +1,17 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import styles from './Cart.module.css'
 import { ThemeContext } from '../../ThemeContext'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../../redux/cartSlice';
 
 const Cart = () => {
     const { theme } = useContext(ThemeContext);
 
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    const TotalPrice = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+
+    const dispatch = useDispatch();
 
     return (
         <div className={[styles.cartPage, theme === "light" ? styles.cartLight : styles.cartDark].join(' ')}>
@@ -16,7 +22,7 @@ const Cart = () => {
                 <div className={styles.cartItems}>
 
                     {
-                        cartItem.map((item) => {
+                        cartItems.map((item) => {
                             return (
                                 <div className={[styles.cartItem, theme === 'light' ? styles.cartItemLight : styles.cartItemDark].join(' ')}>
                                     <img className={styles.CartImg} src={item.imageLink} />
@@ -27,7 +33,7 @@ const Cart = () => {
                                         <div className={styles.cartPriceBtn}>
                                             <h1>$ {item.price}</h1>
                                             <div className={styles.cartBtns}>
-                                                <div className={theme === 'light' ? styles.cartBtnLight : styles.cartBtnDark} >Remove From Cart</div>
+                                                <div className={theme === 'light' ? styles.cartBtnLight : styles.cartBtnDark} onClick={()=>dispatch(removeFromCart(item.id))} >Remove From Cart</div>
                                             </div>
                                         </div>
                                     </div>
@@ -38,7 +44,7 @@ const Cart = () => {
                     }
 
                     {
-                        cartItem.length===0?<h1>No any Item in cart</h1> :null
+                        cartItems.length===0?<h1>No any Item in cart</h1> :null
                     }
 
 

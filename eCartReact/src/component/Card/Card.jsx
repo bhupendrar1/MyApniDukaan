@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './Card.module.css'
 import { Link } from 'react-router-dom';
+import { useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {addToCart } from '../../redux/cartSlice'
 
 const Card = ({ theme, item }) => {
+    const dispatch = useDispatch();
 
     return (
         <div key={item.id} className={[styles.card, theme === "light" ? styles.cardLight : styles.cardDark].join(' ')}>
@@ -18,7 +22,9 @@ const Card = ({ theme, item }) => {
                 
                 <div className={styles.detail}>
                     <div className={styles.price}>$ {item.price}</div>
-                    <div className={theme === "light" ? styles.btnLight : styles.btnDark} >Add To Cart</div>
+                    <div className={theme === "light" ? styles.btnLight : styles.btnDark} onClick={() => {dispatch(addToCart(item))}}>
+                        Add To Cart
+                    </div>
                 </div>
 
             </div>
