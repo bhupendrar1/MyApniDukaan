@@ -40,7 +40,7 @@ src/
 
 Clone the repository:
 
-  - git clone 
+  - git clone https://github.com/bhupendrar1/MyApniDukaan.git
 
 Navigate into the project:
 
