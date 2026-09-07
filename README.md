@@ -2,9 +2,6 @@
 
 A modern, responsive e-commerce frontend built with **React.js** and **Vite**. MyApniDukaan provides a clean shopping experience where users can browse products, view product details, add items to a cart, and manage their shopping journey through a simple and responsive interface.
 
-🔗 **Live Demo:** https://my-apni-dukaan.vercel.app
-
-🔗 **GitHub Repository:** https://github.com/bhupendrar1/MyApniDukaan
 
 ---
 
